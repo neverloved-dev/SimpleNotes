@@ -16,4 +16,23 @@ class NoteService(private val repository: NoteRepository) {
     fun getAllNotes(): MutableList<Note> {
         return repository.findAll()
     }
+
+    fun updateNote(id: Int, updatedNote: Note): Note? {
+      var note = repository.findById(id)
+        if (note.get() != null){
+            note.get().title = updatedNote.title
+            note.get().content = updatedNote.content
+            repository.save(note.get())
+        }
+        return note.get()
+    }
+
+    fun createNote(newNote: Note):Note {
+        repository.save(newNote)
+        return newNote
+    }
+
+    fun deleteNoteById(id: Int) {
+        repository.deleteById(id)
+    }
 }

@@ -15,9 +15,9 @@ data class Note(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id:Int,
     @Column
-    val title:String,
+    var title:String,
     @Column
-    val content: String,
+    var content: String,
     @Column
     val createdAt: Date
 )
