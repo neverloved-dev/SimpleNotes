@@ -10,5 +10,4 @@ interface NoteRepository:JpaRepository<Note,Int> {
 
      override fun findById(id:Int): Optional<Note>
      override fun findAll(): MutableList<Note>
-    abstract fun findByIdOrNull(id: Int): Note?
 }

@@ -8,8 +8,8 @@ import java.util.*
 @Service
 class NoteService(private val repository: NoteRepository) {
 
-    fun findNoteById(id: Int): Optional<Note> {
-        var note = repository.findById(id)
+    fun findNoteById(id: Int): Note? {
+        var note = repository.findById(id).orElse(null)
         return note
     }
 
